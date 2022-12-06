@@ -1,68 +1,58 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Webcam Images v2</title>
+  <title>WebCam Image Save V4</title>
 </head>
 <body>
-  <h1>Webcam Images</h1>
-  <video id="myWebcam" width="400" height="300"></video>
-  <br>
-  <button onclick="takePicture()">Take Picture</button>
-  <br>
-  <button onclick="viewPictures()">View Pictures</button>
-  <br>
-  <div id="myPictures"></div>
+  <h1>WebCam Image Save</h1>
+  <button id="captureBtn">Capture Image</button>
+  <br><br>
+  <button id="viewBtn">View Images in Local Storage</button>
+  <br><br>
+  <video id="myVideo" width="400" height="300" autoplay></video>
+  <canvas id="myCanvas"></canvas>
   <script>
-    // set up webcam
-    const myWebcam = document.getElementById("myWebcam");
-    const constraints = {
-      video: true
-    };
-    navigator.mediaDevices.getUserMedia(constraints)
-      .then(function(stream) {
-        myWebcam.srcObject = stream;
-      })
-      .catch(function(error) {
-        console.error("Error: ", error);
-      });
+    // get video and canvas elements
+    const myVideo = document.getElementById('myVideo');
+    const myCanvas = document.getElementById('myCanvas');
 
-// take picture and save to localStorage
-function takePicture() {
-  // create canvas to draw image onto
-  const myCanvas = document.createElement("canvas");
-  myCanvas.width = myWebcam.videoWidth;
-  myCanvas.height = myWebcam.videoHeight;
-  const myContext = myCanvas.getContext("2d");
-  myContext.drawImage(myWebcam, 0, 0);
+// get capture and view buttons
+const myCaptureBtn = document.getElementById('captureBtn');
+const myViewBtn = document.getElementById('viewBtn');
 
-  // get current date and time for file name
-  const myDate = new Date();
-  const myFileName = myDate.toISOString();
+// get current date
+const myDate = new Date();
 
-  // convert canvas to png and save to localStorage
-  const myImage = myCanvas.toDataURL("image/png");
-  localStorage.setItem(myFileName, myImage);
-}
+// get access to user's webcam
+navigator.mediaDevices.getUserMedia({video: true})
+  .then(stream => {
+    myVideo.srcObject = stream;
+  });
 
-// view all images in localStorage
-function viewPictures() {
-  // clear previous images
-  const myPictures = document.getElementById("myPictures");
-  myPictures.innerHTML = "";
+// capture image from webcam
+myCaptureBtn.addEventListener('click', function() {
+  // draw video frame on canvas
+  myCanvas.getContext('2d').drawImage(myVideo, 0, 0, 400, 300);
+  // convert canvas to png image
+  const myImageData = myCanvas.toDataURL("image/png");
+  // save image to localStorage with date as filename
+  localStorage.setItem(myDate, myImageData);
+});
 
-  // loop through all items in localStorage
+// view images in localStorage
+myViewBtn.addEventListener('click', function() {
+  // loop through localStorage items
   for (let i = 0; i < localStorage.length; i++) {
-    // get key and value for each item
-    const myKey = localStorage.key(i);
-    const myValue = localStorage.getItem(myKey);
-
-    // create image element and set src to stored image
-    const myImage = document.createElement("img");
-    myImage.src = myValue;
-
-    // append image to div
-    myPictures.appendChild(myImage);
+    // get item key (filename) and value (image data)
+    const myImageName = localStorage.key(i);
+    const myImageData = localStorage.getItem(myImageName);
+    // create img element and set src to image data
+    const myImg = document.createElement('img');
+    myImg.src = myImageData;
+    // add img element to body
+    document.body.appendChild(myImg);
   }
-}
+});
   </script>
 </body>
 </html>
