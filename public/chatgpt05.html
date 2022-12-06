@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monkey Game</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monkey Game</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        // set up canvas
+        const myCanvas = document.getElementById("gameCanvas");
+        const myContext = myCanvas.getContext("2d");
+//Copy code
+    // load monkey images
+    const myMonkey1 = new Image();
+    myMonkey1.src = "monkey1.png";
+    const myMonkey2 = new Image();
+    myMonkey2.src = "monkey2.png";
+    const myMonkey3 = new Image();
+    myMonkey3.src = "monkey3.png";
+
+    // create array to hold all monkeys
+    const myMonkeys = [myMonkey1, myMonkey2, myMonkey3];
+
+    // draw random monkey on canvas
+    const drawRandomMonkey = () => {
+        // get random index for monkey array
+        const myRandomIndex = Math.floor(Math.random() * myMonkeys.length);
+        // get random x and y position for monkey
+        const myRandomX = Math.floor(Math.random() * myCanvas.width);
+        const myRandomY = Math.floor(Math.random() * myCanvas.height);
+        // draw monkey on canvas
+        myContext.drawImage(myMonkeys[myRandomIndex], myRandomX, myRandomY);
+    }
+
+    // call draw function every 1 second
+    setInterval(drawRandomMonkey, 1000);
+</script>
+</body>
+</html>
