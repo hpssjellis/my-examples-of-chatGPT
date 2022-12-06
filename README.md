@@ -67,7 +67,7 @@ Example 5.
 
 Lots of monkeys showing on a canvas
     
-
+I had to download a few .png files of monkeys and put them in the public folder
 
 Beginner vanilla javascript with "my" in front of all local variables make a single page html that makes a 2d javascript game with 3 images of monkeys
 
