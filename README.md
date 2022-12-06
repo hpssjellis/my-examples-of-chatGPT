@@ -65,7 +65,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt04.htm
 
 Example 5. 
 
-DRAFT in progress
+Lots of monkeys showing on a canvas
     
 
 
@@ -74,5 +74,20 @@ Beginner vanilla javascript with "my" in front of all local variables make a sin
 Code at [public/chatgpt05.html](public/chatgpt05.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt05.html
+
+-------
+
+
+Example 6. 
+
+Lots of monkeys showing on a canvas
+    
+
+
+Draft in progress
+
+Code at [public/chatgpt06.html](public/chatgpt06.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt06.html
 
 -------
