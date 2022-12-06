@@ -61,3 +61,18 @@ Code at [public/chatgpt04.html](public/chatgpt04.html)
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt04.html
 
 -------
+
+
+Example 5. 
+
+DRAFT in progress
+    
+
+
+Beginner vanilla javascript with "my" in front of all local variables make a single page html that makes a 2d javascript game with 3 images of monkeys
+
+Code at [public/chatgpt05.html](public/chatgpt05.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt05.html
+
+-------
