@@ -16,7 +16,7 @@ https://chat.openai.com/chat
 Example 1.
 
 
-
+-----
 
 
 Example 2. 
@@ -31,7 +31,7 @@ Code at [public/chatgpt02.html](public/chatgpt02.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt02.html
 
-
+--------
 
 Example 3. 
 
@@ -43,3 +43,4 @@ Code at [public/chatgpt02.html](public/chatgpt03.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt03.html
 
+-------
