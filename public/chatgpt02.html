@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Web Camera Capture and LocalStorage Example</title>
+</head>
+
+<body>
+  <h1>Web Camera Capture and LocalStorage Example</h1>
+
+  <video id="webcam" width="640" height="480" autoplay></video>
+  <button id="capture">Capture</button>
+  <br>
+  <img id="captured-image" width="640" height="480">
+
+  <script>
+    // Get references to the video and canvas elements on the page
+    const myWebCam = document.getElementById('webcam');
+    const myCanvas = document.getElementById('captured-image');
+    const myCaptureBtn = document.getElementById('capture');
+
+    // Set up the web camera
+    navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+      myWebCam.srcObject = stream;
+    });
+
+    // Set up the event listener for the capture button
+    myCaptureBtn.addEventListener('click', () => {
+      // Create a canvas with the same dimensions as the video
+      const canvas = document.createElement('canvas');
+      canvas.width = myWebCam.videoWidth;
+      canvas.height = myWebCam.videoHeight;
+
+      // Draw the current frame of the video onto the canvas
+      canvas.getContext('2d').drawImage(myWebCam, 0, 0);
+
+      // Convert the canvas to a PNG image
+      const imageData = canvas.toDataURL('image/png');
+
+      // Set the source of the captured image element to the PNG data
+      myCanvas.src = imageData;
+
+      // Save the PNG data to localStorage
+      localStorage.setItem('captured-image', imageData);
+    });
+  </script>
+</body>
+
+</html>
