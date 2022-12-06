@@ -10,7 +10,7 @@ My CHatGPT test runs.
 
 https://chat.openai.com/chat
 
-
+When I input the below sentences I get the following code
 
 
 Example 1.
@@ -37,7 +37,7 @@ Example 3.
 
 2nd attempt
 
-Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to localStorage with the date as the file name and has a button to view all images in local storage
+Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to both display on the page and save to localStorage with the date as the file name and has a button to view all images in local storage
 
 Code at [public/chatgpt02.html](public/chatgpt03.html)
 
