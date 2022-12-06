@@ -35,7 +35,9 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt02.htm
 
 Example 3. 
 
-6 attempts and edited out "copy code" and the alert box
+6 attempts and edited out "copy code" and the alert box also added the line
+ <h4>ctrl-shit-i --> applications --> local storage to delete stored data</h4>
+    
 
 Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to both display on the page and save to localStorage with the date as the file name and has a button to view all images in local storage
 
