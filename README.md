@@ -46,3 +46,18 @@ Code at [public/chatgpt03.html](public/chatgpt03.html)
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt03.html
 
 -------
+
+
+
+Example 4. 
+
+DRAFT in progress
+    
+
+Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to both display on the page and save to localStorage with the date as the file name and has a button to view all images in local storage
+
+Code at [public/chatgpt04.html](public/chatgpt04.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt04.html
+
+-------
