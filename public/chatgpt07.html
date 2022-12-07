@@ -1,0 +1,63 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.1.0/dist/tf.min.js"></script>
+</head>
+<body>
+  <h1>TensorflowJS Vision ML Model Training</h1>
+  <p>Select grayscale 320 by 320 PNG images from your computer to train the model.</p>
+  <input type="file" accept="image/png" multiple id="image-input" />
+  <br /><br />
+  <button onclick="trainModel()">Train Model</button>
+  <br /><br />
+  <p id="status"></p>
+  <script>
+    // create an array to store the selected images
+    const images = [];
+    // create a variable to store the compiled model
+    let model;
+
+    // function to load the selected images into the images array
+    function loadImages() {
+      // get the input element
+      const input = document.getElementById('image-input');
+      // iterate over the selected files
+      for (const file of input.files) {
+        // create an image object
+        const img = new Image();
+        // set the source of the image to the file data
+        img.src = URL.createObjectURL(file);
+        // push the image object into the images array
+        images.push(img);
+      }
+    }
+
+    // function to train the model using the selected images
+    async function trainModel() {
+      // update the status message
+      document.getElementById('status').innerHTML = 'Loading images...';
+      // load the selected images
+      loadImages();
+      // update the status message
+      document.getElementById('status').innerHTML = 'Training model...';
+      // create a tensorflowjs mobilenet model
+      model = await mobilenet.load();
+      // get the model's internal layers
+      const layers = model.layers;
+      // get the output layer of the model
+      const output = layers[layers.length - 1];
+      // create a new model using the internal layers and the output layer
+      model = tf.model({inputs: model.inputs, outputs: output.output});
+      // compile the model
+      model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+      // create a tensor of the selected images
+      const input = tf.tensor(images, [images.length, 320, 320, 1]);
+      // train the model on the selected images
+      await model.fit(input, input, {epochs: 10});
+      // update the status message
+      document.getElementById('status').innerHTML = 'Model trained and saved to disk.';
+      // save the compiled model to disk
+      await model.save('downloads://my_model');
+    }
+  </script>
+</body>
+</html>
