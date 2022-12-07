@@ -1,37 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.1.0/dist/tf.min.js"></script>
+
 <script>
-async function classify() {
-  // load model from url
-  const myModel = await tf.loadGraphModel('https://myurl.com/myModel.json');
-// load images from local storage
-const myImage1 = document.getElementById('myImage1');
-const myImage2 = document.getElementById('myImage2');
-const myImage3 = document.getElementById('myImage3');
 
-// pre-process images
-const myImage1Tensor = tf.browser.fromPixels(myImage1).resizeBilinear([320, 320]).mean(2).expandDims(2).expandDims();
-const myImage2Tensor = tf.browser.fromPixels(myImage2).resizeBilinear([320, 320]).mean(2).expandDims(2).expandDims();
-const myImage3Tensor = tf.browser.fromPixels(myImage3).resizeBilinear([320, 320]).mean(2).expandDims(2).expandDims();
-
-// classify images
-const myImage1Prediction = await myModel.predict(myImage1Tensor).data();
-const myImage2Prediction = await myModel.predict(myImage2Tensor).data();
-const myImage3Prediction = await myModel.predict(myImage3Tensor).data();
-
-// display results in div
-const myDiv01 = document.getElementById('myDiv01');
-myDiv01.innerHTML = 'Image 1: ' + myImage1Prediction + '<br>Image 2: ' + myImage2Prediction + '<br>Image 3: ' + myImage3Prediction;
-}
 </script>
 
 </head>
-<body onload="classify()">
-  <img src="myImage1.png" id="myImage1" style="display: none;">
-  <img src="myImage2.png" id="myImage2" style="display: none;">
-  <img src="myImage3.png" id="myImage3" style="display: none;">
-  <div id="myDiv01"></div>
+<body >
+hi
 </body>
 </html>
