@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <script>
+function loadImages() {
+  //get all images from local storage
+  var myImages = JSON.parse(localStorage.getItem("images"));
+//loop through images and add them to page
+for (var i = 0; i < myImages.length; i++) {
+var img = document.createElement("img");
+img.src = myImages[i];
+document.body.appendChild(img);
+}
+}
 
+function deleteImages() {
+//remove images from local storage
+localStorage.removeItem("images");
+
+//refresh page to remove images from display
+location.reload();
+}
 </script>
 
 </head>
-<body >
-hi
+<body onload="loadImages()">
+<button onclick="deleteImages()">Delete Images</button>
 </body>
 </html>
