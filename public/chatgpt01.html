@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>TensorFlow.js Example</title>
+  </head>
+  <body>
+    <div id="myDiv01"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.1.0/dist/tf.min.js"></script>
+    <script>
+      // Load the TensorFlow.js version 4.1.0 vision model
+      const myModel = await tf.loadLayersModel('http://my-server/my-model-file.json');
+
+      // Define a function to run the model on a grayscale 320 by 320 PNG image
+      async function runModel(image) {
+        // Pre-process the image to match the model's input requirements
+        const preprocessedImage = tf.browser.fromPixels(image)
+            .resizeBilinear([320, 320])
+            .mean(2)
+            .expandDims(2)
+            .expandDims();
+
+        // Run the pre-processed image through the model and get the model's output
+        const prediction = myModel.predict(preprocessedImage);
+
+        // Return the model's output as a promise
+        return prediction;
+      }
+
+      // Select the div with the id "myDiv01"
+      const myDiv = document.querySelector('#myDiv01');
+
+      // Load a sample grayscale 320 by 320 PNG image
+      const myImage = new Image();
+      myImage.src = 'http://my-server/my-image.png';
+
+      // When the image is loaded, run the model on it and display the results in the div
+      myImage.onload = async () => {
+        const prediction = await runModel(myImage);
+        myDiv.innerHTML = `Model prediction: ${prediction}`;
+      };
+    </script>
+  </body>
+</html>
