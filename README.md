@@ -140,4 +140,16 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt08.htm
 -------
 
 
+Example 9. 
 
+
+Make all local variables start with "my".  Make a single page html file that uses vanilla javascript to load a tensorflowjs model from disk using a button and display the model in the browser
+
+
+Draft in progress
+
+Code at [public/chatgpt09.html](public/chatgpt09.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt09.html
+
+-------
