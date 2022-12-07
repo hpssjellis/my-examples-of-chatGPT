@@ -1,58 +1,41 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Webcam Image Capture and Localstorage Example</title>
+<title>Webcam Picture Capture</title>
 </head>
 <body>
-  <h1>Webcam Image Capture and Localstorage Example</h1>
-  <p>Click the button below to access your webcam and capture an image.</p>
-  <button id="myCaptureButton">Capture Image</button>
 
-  <script>
-    // Get a reference to the capture button
-    var myCaptureButton = document.getElementById('myCaptureButton');
+<h1>Webcam Picture Capture v9</h1>
 
-    // Set up an event listener to capture the image when the button is clicked
-    myCaptureButton.addEventListener('click', function() {
-      // Check if the browser supports the getUserMedia API
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // If the getUserMedia API is supported, access the webcam and get a video stream
-        navigator.mediaDevices.getUserMedia({ video: true })
-          .then(function(myStream) {
-            // Create a video element and set its src to the video stream from the webcam
-            var myVideo = document.createElement('video');
-            myVideo.srcObject = myStream;
+<button onclick="myTakePicture()">Take Picture</button>
 
-            // Create a canvas element and set its width and height to the dimensions of the video
-            var myCanvas = document.createElement('canvas');
-            myCanvas.width = myVideo.videoWidth;
-            myCanvas.height = myVideo.videoHeight;
+<p>The picture from the webcam will appear here:</p>
+<div id="myPicture"></div>
 
-            // Get the context of the canvas and draw the video onto it
-            var myContext = myCanvas.getContext('2d');
-            myContext.drawImage(myVideo, 0, 0, myCanvas.width, myCanvas.height);
+<script>
+function myTakePicture() {
+  // Get access to the camera
+  navigator.mediaDevices.getUserMedia({video: true})
+  .then(function(myStream) {
+    // Get a reference to the video element on the page
+    var myVideoElement = document.getElementById("myVideoElement");
 
-            // Get the current date and time
-            var myDate = new Date();
+    // Set the source of the video element to the camera stream
+    myVideoElement.srcObject = myStream;
 
-            // Use the date and time as the key for the localstorage item
-            var myLocalstorageKey = 'my' + myDate.toISOString();
+    // Create an image element
+    var myImageElement = document.createElement("img");
 
-            // Get the data URL of the canvas and save it to localstorage as a base64-encoded string
-            var myDataURL = myCanvas.toDataURL();
-            localStorage.setItem(myLocalstorageKey, myDataURL);
-
-            // Stop the video stream
-            myStream.getTracks()[0].stop();
-          })
-          .catch(function(error) {
-            // If there is an error accessing the webcam, display an error message
-            console.error('Error accessing the webcam:', error);
-          });
-      } else {
-        // If the getUserMedia API is not supported, display an error message
-        console.error('getUserMedia API is not supported in your browser.');
-      }
+    // When the video plays, set the source of the image element to the video
+    myVideoElement.addEventListener("play", function() {
+      myImageElement.src = myVideoElement.srcObject.toString();
     });
-  </script>
+
+    // Append the image to the page
+    document.getElementById("myPicture").appendChild(myImageElement);
+  });
+}
+</script>
+
 </body>
 </html>
