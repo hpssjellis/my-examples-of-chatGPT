@@ -51,7 +51,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt03.htm
 
 Example 4. 
 
-DRAFT in progress
+FAIL
     
 
 Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to both display on the page and save to localStorage with the date as the file name and has a button to view all images in local storage
@@ -80,11 +80,13 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt05.htm
 
 Example 6. 
 
+FAIL
+
 Lots of monkeys showing on a canvas
     
 
 
-Draft in progress
+
 
 Code at [public/chatgpt06.html](public/chatgpt06.html)
 
@@ -98,7 +100,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt06.htm
 Example 7. 
 
 
-    
+ FAIL   
 
 Draft in progress
 
@@ -122,6 +124,20 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt07.htm
 
 
 
+Example 8. 
+
+
+
+make a single page html file that uses vanilla javascript to run chatgpt in the browser. make all local varaibles start with "my"
+    
+
+Draft in progress
+
+Code at [public/chatgpt08.html](public/chatgpt08.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt08.html
+
+-------
 
 
 
