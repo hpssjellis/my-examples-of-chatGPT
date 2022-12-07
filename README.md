@@ -43,7 +43,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v02
 
 
 ... v03
-
+continue and add a button to make the webcam take pictures and add the pictures to local storage using the date and time as the local storage key
 
 Code at [public/chatgpt01-v03.html](public/chatgpt01-v03.html)
 
