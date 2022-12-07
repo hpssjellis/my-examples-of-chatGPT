@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Webcam Picture Capture</title>
+  <title>Webcam Picture Capture</title>
 </head>
 <body>
-
-<h1>Webcam Picture Capture v9</h1>
-
-<button onclick="myTakePicture()">Take Picture</button>
-
-<p>The picture from the webcam will appear here:</p>
-<div id="myPicture"></div>
-
-<script>
-function myTakePicture() {
-  // Get access to the camera
-  navigator.mediaDevices.getUserMedia({video: true})
-  .then(function(myStream) {
-    // Get a reference to the video element on the page
-    var myVideoElement = document.getElementById("myVideoElement");
-
-    // Set the source of the video element to the camera stream
-    myVideoElement.srcObject = myStream;
-
-    // Create an image element
-    var myImageElement = document.createElement("img");
-
-    // When the video plays, set the source of the image element to the video
-    myVideoElement.addEventListener("play", function() {
-      myImageElement.src = myVideoElement.srcObject.toString();
+  <h1>Webcam Picture Capture</h1>
+  <button id="myCaptureButton">Take Picture</button>
+  <br><br>
+  <img id="myCapturedImage" src="" alt="Captured Image" style="display:none;">
+  <script>
+    // Get reference to button and image elements
+    var myCaptureButton = document.getElementById('myCaptureButton');
+    var myCapturedImage = document.getElementById('myCapturedImage');
+    
+    // Add event listener to button to capture image on click
+    myCaptureButton.addEventListener('click', function() {
+      // Check if browser supports navigator.mediaDevices.getUserMedia
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Get access to user's webcam
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(myStream) {
+          // Set video source to user's webcam stream
+          myCapturedImage.srcObject = myStream;
+          // Show image on webpage
+          myCapturedImage.style.display = 'block';
+          
+          // Add event listener to capture image when user clicks on it
+          myCapturedImage.addEventListener('click', function() {
+            // Create canvas element to draw image on
+            var myCanvas = document.createElement('canvas');
+            var myContext = myCanvas.getContext('2d');
+            // Set canvas dimensions to same as video element
+            myCanvas.width = myCapturedImage.videoWidth;
+            myCanvas.height = myCapturedImage.videoHeight;
+            // Draw video frame on canvas
+            myContext.drawImage(myCapturedImage, 0, 0, myCanvas.width, myCanvas.height);
+            // Get base64 representation of image
+            var myBase64Image = myCanvas.toDataURL('image/png');
+            // Get current date and time
+            var myDate = new Date();
+            var myDateString = myDate.toISOString();
+            // Save base64 image to localStorage with date and time as key
+            localStorage.setItem(myDateString, myBase64Image);
+            alert('Image saved to localStorage with key: ' + myDateString);
+          });
+        });
+      } else {
+        alert('Your browser does not support webcam access.');
+      }
     });
-
-    // Append the image to the page
-    document.getElementById("myPicture").appendChild(myImageElement);
-  });
-}
-</script>
-
+  </script>
 </body>
 </html>
