@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TensorflowJS Image Classification</title>
+</head>
+<body>
+  <h1>TensorflowJS Image Classification</h1>
+  <p>Upload a grayscale 320 by 320 PNG image to train a vision machine learning model:</p>
+  <input type="file" id="image-input" accept=".png" />
+  <button id="train-button">Train Model</button>
+  <br>
+  <p id="status"></p>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.1.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@v1.1.0"></script>
+  <script>
+    const trainButton = document.getElementById('train-button');
+    const status = document.getElementById('status');
+    const imageInput = document.getElementById('image-input');
+
+    trainButton.addEventListener('click', async () => {
+      const image = imageInput.files[0];
+
+      if (!image) {
+        status.innerText = 'No image selected!';
+        return;
+      }
+
+      const imageUrl = URL.createObjectURL(image);
+      const model = await mobilenet.load();
+
+      tf.browser.fromPixels(imageUrl).resizeBilinear([320, 320]).toFloat().mean(2).expandDims(2).expandDims().toInt().print();
+
+      await model.train(tf.browser.fromPixels(imageUrl).resizeBilinear([320, 320]).toFloat().mean(2).expandDims(2).expandDims(), 2);
+
+      status.innerText = 'Model trained successfully!';
+
+      const saveResults = await model.save('downloads://my-model-name');
+      console.log(saveResults);
+    });
+  </script>
+</body>
+</html>
