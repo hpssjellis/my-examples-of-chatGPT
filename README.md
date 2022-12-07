@@ -122,10 +122,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt03.htm
 
 Example 4. 
 
-FAIL
-    
-
-Beginner vanilla javascript with "my" in front of all local variables make a single page html that saves webCam images as PNG to both display on the page and save to localStorage with the date as the file name and has a button to view all images in local storage
+Make a single file webpage that includes javascript on the same page  to make a button to use the webcam to take pictures and add the pictures to local storage using the date and time as the local storage key
 
 Code at [public/chatgpt04.html](public/chatgpt04.html)
 
