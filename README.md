@@ -24,7 +24,7 @@ When I input the below sentences I get the following code
 
 Example 1.
 
-Make a single file HTML webpage that uses javascript to load  grayscale 320 by 320 PNG images from local storage and display them all on the page. Put "my" in front of all local variables.
+Make a single file webpage that includes javascript on the same page  to load all  images from local storage and displays them on the page. Put "my" in front of all local variables.
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
 
