@@ -116,6 +116,15 @@ Write a self contained HTML page with vanilla javascript where all  local variab
 v7
 Write a self contained HTML page with vanilla javascript where all  local variables start with "my"  that takes several grayscale 320 by 320 PNG images of laundry from the computer disk and trains on  tensorflowjs version 4.1.0 a vision machine learning model with the label "laundry" and saves the compiled model to disk. 
 
+
+
+Trying again
+
+v01
+Write a single html page that uses vanilla javascript  and uploads  grayscale 320 by 320 PNG images from the computer disk and trains a version 4.1.0 tensorflowjs vision machine learning model and saves the compiled model to disk.
+
+
+
 Code at [public/chatgpt07.html](public/chatgpt07.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt07.html
