@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Webcam Image Capture and Save</title>
+    <title>Webcam Image Capture and Save</title>
 </head>
 <body>
-<h1>Webcam Image Capture and Save</h1>
-<div id="myWebcam"></div>
-<canvas id="myCanvas"></canvas>
-<button onclick="myCaptureWebcam()">Capture Webcam Image</button>
+    <h1>Webcam Image Capture and Save</h1>
+    <canvas id="myCanvas"></canvas>
+    <br>
+    <button onclick="captureImage()">Capture and Save</button>
+    <script>
+        // get the canvas and context
+        let myCanvas = document.getElementById('myCanvas');
+        let ctx = myCanvas.getContext('2d');
+Copy code
+    // get the current date and time
+    let myDate = new Date();
+    let dateString = myDate.toString();
 
-<script>
-const myWebcam = document.getElementById('myWebcam');
-const myCanvas = document.getElementById('myCanvas');
+    // function to capture the image and save to localstorage
+    function captureImage() {
+        // get the video stream from the webcam
+        navigator.mediaDevices.getUserMedia({video: true})
+        .then(function(stream) {
+            // set the video source and start the stream
+            let myVideo = document.createElement('video');
+            myVideo.srcObject = stream;
+            myVideo.play();
 
-const myMediaStream = null;
-const myMediaTrack = null;
+            // set the canvas size to the video size
+            myCanvas.width = myVideo.videoWidth;
+            myCanvas.height = myVideo.videoHeight;
 
-function myCaptureWebcam() {
-  // get media stream
-  navigator.mediaDevices.getUserMedia({ video: true })
-  .then((myMediaStream) => {
-    // show webcam video on screen
-    myWebcam.srcObject = myMediaStream;
-    myWebcam.play();
+            // draw the video image to the canvas
+            ctx.drawImage(myVideo, 0, 0);
 
-    // get media track from stream
-    myMediaTrack = myMediaStream.getVideoTracks()[0];
-  })
-  .catch((error) => {
-    console.log('Error:', error);
-  });
+            // get the image data from the canvas
+            let myImageData = ctx.getImageData(0, 0, myCanvas.width, myCanvas.height);
 
-  // capture image from webcam on canvas
-  myCanvas.getContext('2d').drawImage(myWebcam, 0, 0);
+            // convert the image data to a png base64 string
+            let myImage = myCanvas.toDataURL('image/png');
 
-  // save canvas image to localstorage as PNG in base64 format
-  const myDate = new Date();
-  const myLocalStorageKey = myDate.toISOString();
-  const myImageData = myCanvas.toDataURL('image/png');
-  localStorage.setItem(myLocalStorageKey, myImageData);
-  console.log('Image saved to localstorage with key:', myLocalStorageKey);
-
-  // stop webcam video
-  myMediaTrack.stop();
-}
+            // save the image to localstorage with the date and time as the key
+            localStorage.setItem(dateString, myImage);
+        });
+    }
 </script>
 </body>
 </html>
