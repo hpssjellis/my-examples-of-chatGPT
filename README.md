@@ -35,7 +35,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01
 
 
 ... v02
-
+add a button to delete from local storage all the images
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v02.html)
 
