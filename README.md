@@ -3,6 +3,15 @@
 
 
 
+It seems that you can keep the converstation going until you "reset the thread" so I am going to try showing each program as it grows
+
+
+
+
+
+
+
+
 
 My CHatGPT test runs.
 
@@ -15,8 +24,50 @@ When I input the below sentences I get the following code
 
 Example 1.
 
-Make a single file HTML webpage that uses javascript to load a pre-made TensorflowJS version 4.1.0 vision model that uses grayscale 320 by 320 PNG imagesmodel and display the results in a div id myDiv01. Put "my" in front of all local variables. 
+Make a single file HTML webpage that uses javascript to load  grayscale 320 by 320 PNG images from local storage and display them all on the page. Put "my" in front of all local variables.
 
+Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01.html
+
+
+
+
+
+... v02
+
+
+Code at [public/chatgpt01-v01.html](public/chatgpt01-v02.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v02.html
+
+
+... v03
+
+
+Code at [public/chatgpt01-v03.html](public/chatgpt01-v03.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v03.html
+
+
+... v04
+
+
+Code at [public/chatgpt01-v04.html](public/chatgpt01-v04.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v04.html
+
+
+
+
+
+.
+
+
+
+.
+
+after multiple attempts the final project will be at
 
 
 Code at [public/chatgpt01.html](public/chatgpt01.html)
@@ -28,20 +79,15 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01.htm
 
 
 
-Example 1-v01.
-
-
-Make a single file HTML webpage that uses javascript to load a pre-made TensorflowJS version 4.1.0 vision model from a url and then classifies multiple grayscale PNG 320 by 320 images loaded from local storage and  displays the results in a div id myDiv01. Put "my" in front of all local variables. 
-
-
-Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
-
-Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01.html
 
 -----
 
 
 
+
+
+
+## Old stuff with single programs
 
 
 Example 2. 
