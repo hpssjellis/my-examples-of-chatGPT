@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>TensorFlow.js Model Loader</title>
+  </head>
+  <body>
+    <h1>TensorFlow.js Model Loader</h1>
+    <button onclick="myLoadModel()">Load Model</button>
+    <div id="myModelContainer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script>
+      async function myLoadModel() {
+        // Load the model from disk
+        const myModel = await tf.loadLayersModel('path/to/model.json');
+        // Create a container for the model
+        const myModelContainer = document.getElementById('myModelContainer');
+        // Add the model to the container
+        myModelContainer.appendChild(myModel);
+      }
+    </script>
+  </body>
+</html>
