@@ -111,6 +111,9 @@ Write a single vanilla webpage javascript program with all  local variables star
 v6
 Write a self contained HTML page with vanilla javascript where all  local variables start with "my"  that takes several grayscale 320 by 320 PNG images of laundry from the computer disk and trains a tensorflowjs vision machine learning model with the labell "laundry" and saves the compiled model to disk. It then uses the webcam and a canvas to classify if the webcam images can be classified as Laundry
 
+v7
+Write a self contained HTML page with vanilla javascript where all  local variables start with "my"  that takes several grayscale 320 by 320 PNG images of laundry from the computer disk and trains on  tensorflowjs version 4.1.0 a vision machine learning model with the label "laundry" and saves the compiled model to disk. 
+
 Code at [public/chatgpt07.html](public/chatgpt07.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt07.html
