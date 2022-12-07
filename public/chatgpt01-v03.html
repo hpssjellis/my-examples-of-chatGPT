@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <script>
+function loadImages() {
+  //get all images from local storage
+  var myImages = JSON.parse(localStorage.getItem("images"));
+//loop through images and add them to page
+for (var i = 0; i < myImages.length; i++) {
+var img = document.createElement("img");
+img.src = myImages[i];
+document.body.appendChild(img);
+}
+}
 
+function deleteImages() {
+//remove images from local storage
+localStorage.removeItem("images");
+
+//refresh page to remove images from display
+location.reload();
+}
+
+function takePicture() {
+//get current date and time
+var date = new Date();
+var key = date.toString();
+
+//get image from webcam
+var img = document.createElement("img");
+img.src = document.querySelector("#webcam").src;
+
+//add image to local storage with date and time as key
+localStorage.setItem(key, img);
+
+//refresh page to display new image
+location.reload();
+}
 </script>
 
 </head>
-<body >
-hi
+<body onload="loadImages()">
+<video id="webcam" width="640" height="480" autoplay></video>
+<button onclick="takePicture()">Take Picture</button>
+<button onclick="deleteImages()">Delete Images</button>
 </body>
 </html>
