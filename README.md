@@ -15,8 +15,33 @@ When I input the below sentences I get the following code
 
 Example 1.
 
+Make a single file HTML webpage that uses javascript to load a pre-made TensorflowJS version 4.1.0 vision model that uses grayscale 320 by 320 PNG imagesmodel and display the results in a div id myDiv01. Put "my" in front of all local variables. 
+
+
+
+Code at [public/chatgpt01.html](public/chatgpt01.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01.html
 
 -----
+
+
+
+
+Example 1-v01.
+
+
+
+
+
+Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01.html
+
+-----
+
+
+
 
 
 Example 2. 
