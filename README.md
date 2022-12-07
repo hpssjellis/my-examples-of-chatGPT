@@ -108,6 +108,8 @@ Write a single webpage javascript program that takes grayscale 320 by 320 PNG im
 v2
 Write a single vanilla webpage javascript program with all  local variables starting with "my"  that takes grayscale 320 by 320 PNG images from the computer disk and trains a tensorflowjs vision machine learning model trained on the label "laundry" in all the images and saves the compiled model to disk. It then uses the webcam and a canvas to classify if the webcam sees the label.
 
+v6
+Write a self contained HTML page with vanilla javascript where all  local variables start with "my"  that takes several grayscale 320 by 320 PNG images of laundry from the computer disk and trains a tensorflowjs vision machine learning model with the labell "laundry" and saves the compiled model to disk. It then uses the webcam and a canvas to classify if the webcam images can be classified as Laundry
 
 Code at [public/chatgpt07.html](public/chatgpt07.html)
 
