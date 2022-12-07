@@ -24,31 +24,31 @@ When I input the below sentences I get the following code
 
 Example 1.
 
-Make a single file webpage that includes javascript on the same page  to load all  images from local storage and displays them on the page. Put "my" in front of all local variables.
+...v01
+
+Make a single file webpage that includes javascript include a button to display images from the webcam and save the PNG image in base64 format to localstorage using the date and time as the localstorage key. Put "my" in front of all local variables
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01.html
 
 
-
+--
 
 
 ... v02
-add a button to delete from local storage all the images
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v02.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v02.html
-
+---
 
 ... v03
-continue and add a button to make the webcam take pictures and add the pictures to local storage using the date and time as the local storage key
 
 Code at [public/chatgpt01-v03.html](public/chatgpt01-v03.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v03.html
-
+---
 
 ... v04
 
@@ -56,7 +56,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v03
 Code at [public/chatgpt01-v04.html](public/chatgpt01-v04.html)
 
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v04.html
-
+---
 
 
 
