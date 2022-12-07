@@ -1,6 +1,11 @@
 # my-examples-of-chatGPT
 
 
+# So far as my requests get more advanced the code generated often has a small issue that is difficult to fix.
+
+
+
+
 
 
 It seems that you can keep the converstation going until you "reset the thread" so I am going to try showing each program as it grows
