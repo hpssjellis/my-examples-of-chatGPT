@@ -102,8 +102,11 @@ Example 7.
 
 Draft in progress
 
-
+v1
 Write a single webpage javascript program that takes grayscale 320 by 320 PNG images from the computer disk and trains a tensorflowjs vision machine learning model and saves the compiled model to disk.
+
+v2
+Write a single vanilla webpage javascript program with all  local variables starting with "my"  that takes grayscale 320 by 320 PNG images from the computer disk and trains a tensorflowjs vision machine learning model trained on the label "laundry" in all the images and saves the compiled model to disk. It then uses the webcam and a canvas to classify if the webcam sees the label.
 
 
 Code at [public/chatgpt07.html](public/chatgpt07.html)
