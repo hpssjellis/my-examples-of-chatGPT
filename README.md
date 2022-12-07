@@ -91,3 +91,29 @@ Code at [public/chatgpt06.html](public/chatgpt06.html)
 Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt06.html
 
 -------
+
+
+
+
+Example 7. 
+
+
+    
+
+Draft in progress
+
+
+Write a single webpage javascript program that takes grayscale 320 by 320 PNG images from the computer disk and trains a tensorflowjs vision machine learning model and saves the compiled model to disk.
+
+
+Code at [public/chatgpt07.html](public/chatgpt07.html)
+
+Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt07.html
+
+-------
+
+
+
+
+
+
