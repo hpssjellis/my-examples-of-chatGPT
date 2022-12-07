@@ -26,7 +26,9 @@ Example 1.
 
 ...v01
 
-Make a single file webpage that includes javascript include a button to display images from the webcam and save the PNG image in base64 format to localstorage using the date and time as the localstorage key. Put "my" in front of all local variables
+Make a single file webpage that includes javascript with a button to take a  webcam image and display the image on a canvas and to save the image to localstorage as a PNG in base64 format, using the date and time as the localstorage key. Put "my" in front of all local variables except the localstorage key
+
+
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
 
@@ -37,6 +39,9 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01-v01
 
 
 ... v02
+
+also display the image on the webpage
+
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v02.html)
 
