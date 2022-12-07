@@ -1,29 +1,58 @@
-<!DOCTYPE html>
 <html>
 <head>
-<script>
-function loadImages() {
-  //get all images from local storage
-  var myImages = JSON.parse(localStorage.getItem("images"));
-//loop through images and add them to page
-for (var i = 0; i < myImages.length; i++) {
-var img = document.createElement("img");
-img.src = myImages[i];
-document.body.appendChild(img);
-}
-}
-
-function deleteImages() {
-//remove images from local storage
-localStorage.removeItem("images");
-
-//refresh page to remove images from display
-location.reload();
-}
-</script>
-
+  <title>Webcam Image Capture and Localstorage Example</title>
 </head>
-<body onload="loadImages()">
-<button onclick="deleteImages()">Delete Images</button>
+<body>
+  <h1>Webcam Image Capture and Localstorage Example</h1>
+  <p>Click the button below to access your webcam and capture an image.</p>
+  <button id="myCaptureButton">Capture Image</button>
+
+  <script>
+    // Get a reference to the capture button
+    var myCaptureButton = document.getElementById('myCaptureButton');
+
+    // Set up an event listener to capture the image when the button is clicked
+    myCaptureButton.addEventListener('click', function() {
+      // Check if the browser supports the getUserMedia API
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // If the getUserMedia API is supported, access the webcam and get a video stream
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function(myStream) {
+            // Create a video element and set its src to the video stream from the webcam
+            var myVideo = document.createElement('video');
+            myVideo.srcObject = myStream;
+
+            // Create a canvas element and set its width and height to the dimensions of the video
+            var myCanvas = document.createElement('canvas');
+            myCanvas.width = myVideo.videoWidth;
+            myCanvas.height = myVideo.videoHeight;
+
+            // Get the context of the canvas and draw the video onto it
+            var myContext = myCanvas.getContext('2d');
+            myContext.drawImage(myVideo, 0, 0, myCanvas.width, myCanvas.height);
+
+            // Get the current date and time
+            var myDate = new Date();
+
+            // Use the date and time as the key for the localstorage item
+            var myLocalstorageKey = 'my' + myDate.toISOString();
+
+            // Get the data URL of the canvas and save it to localstorage as a base64-encoded string
+            var myDataURL = myCanvas.toDataURL();
+            localStorage.setItem(myLocalstorageKey, myDataURL);
+
+            // Stop the video stream
+            myStream.getTracks()[0].stop();
+          })
+          .catch(function(error) {
+            // If there is an error accessing the webcam, display an error message
+            console.error('Error accessing the webcam:', error);
+          });
+      } else {
+        // If the getUserMedia API is not supported, display an error message
+        console.error('getUserMedia API is not supported in your browser.');
+      }
+    });
+  </script>
 </body>
 </html>
