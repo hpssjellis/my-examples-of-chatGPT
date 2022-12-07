@@ -31,7 +31,7 @@ Demo at https://hpssjellis.github.io/my-examples-of-chatGPT/public/chatgpt01.htm
 Example 1-v01.
 
 
-
+Make a single file HTML webpage that uses javascript to load a pre-made TensorflowJS version 4.1.0 vision model from a url and then classifies multiple grayscale PNG 320 by 320 images loaded from local storage and  displays the results in a div id myDiv01. Put "my" in front of all local variables. 
 
 
 Code at [public/chatgpt01-v01.html](public/chatgpt01-v01.html)
