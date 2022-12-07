@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>Webcam Picture Taking</title>
+</head>
+<body>
+  <h1>Webcam Picture Taking</h1>
+  <button id="take-picture-btn">Take Picture</button>
+  <div id="picture-container"></div>
+  <script>
+    // Get the take picture button and picture container elements
+    const takePictureBtn = document.querySelector('#take-picture-btn');
+    const pictureContainer = document.querySelector('#picture-container');
+
+    // Check if the user's browser supports the WebRTC API
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Add an event listener to the take picture button
+      takePictureBtn.addEventListener('click', function() {
+        // Get the user's webcam video stream
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+          // Create a video element and set its source to the webcam stream
+          const videoElement = document.createElement('video');
+          videoElement.srcObject = stream;
+
+          // Create an image element and set its source to the video element
+          const imgElement = document.createElement('img');
+          imgElement.src = videoElement;
+
+          // Add the image element to the picture container
+          pictureContainer.appendChild(imgElement);
+
+          // Create a date object to use as the local storage key
+          const date = new Date();
+
+          // Save the image to local storage using the date as the key
+          localStorage.setItem(date, imgElement.src);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
