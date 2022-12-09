@@ -1,49 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Webcam Image Capture and Save</title>
+<title>Webcam</title>
 </head>
 <body>
-    <h1>Webcam Image Capture and Save</h1>
-    <canvas id="myCanvas"></canvas>
-    <br>
-    <button onclick="captureImage()">Capture and Save</button>
-    <script>
-        // get the canvas and context
-        let myCanvas = document.getElementById('myCanvas');
-        let ctx = myCanvas.getContext('2d');
 
-    // get the current date and time
-    let myDate = new Date();
-    let dateString = myDate.toString();
+<h1>Webcam</h1>
 
-    // function to capture the image and save to localstorage
-    function captureImage() {
-        // get the video stream from the webcam
-        navigator.mediaDevices.getUserMedia({video: true})
-        .then(function(stream) {
-            // set the video source and start the stream
-            let myVideo = document.createElement('video');
-            myVideo.srcObject = stream;
-            myVideo.play();
+<canvas id="myCanvas"></canvas>
 
-            // set the canvas size to the video size
-            myCanvas.width = myVideo.videoWidth;
-            myCanvas.height = myVideo.videoHeight;
+<script>
+const myCanvas = document.getElementById('myCanvas');
+const myVideo = document.createElement('video');
 
-            // draw the video image to the canvas
-            ctx.drawImage(myVideo, 0, 0);
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then((stream) => {
+    myVideo.srcObject = stream;
+    myVideo.play();
+  });
 
-            // get the image data from the canvas
-            let myImageData = ctx.getImageData(0, 0, myCanvas.width, myCanvas.height);
-
-            // convert the image data to a png base64 string
-            let myImage = myCanvas.toDataURL('image/png');
-
-            // save the image to localstorage with the date and time as the key
-            localStorage.setItem(dateString, myImage);
-        });
-    }
+myVideo.addEventListener('play', () => {
+  const context = myCanvas.getContext('2d');
+  setInterval(() => {
+    context.drawImage(myVideo, 0, 0, myCanvas.width, myCanvas.height);
+  }, 16);
+});
 </script>
+
 </body>
 </html>
