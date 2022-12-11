@@ -69,3 +69,64 @@ function turnOff() {
 
 ```
 To use these examples, you will need to install the appropriate libraries for Ethernet and websockets on the Arduino microcontroller. You will also need to modify the IP address in both examples to match the IP address of your Arduino microcontroller.
+
+
+
+
+## fix the arduino code for wifi not ethernet
+
+
+Here is an example of code that can be used to control an LED using websockets on an Arduino microcontroller over WiFi:
+
+Copy code
+
+```
+#include <SPI.h>
+#include <WiFi.h>
+#include <WebSocketsServer.h>
+
+const char* ssid = "your_ssid";
+const char* password = "your_password";
+const int ledPin = 13;
+
+IPAddress ip(192, 168, 1, 177);
+WebSocketsServer webSocket = WebSocketsServer(81);
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Connecting to WiFi..");
+  }
+  webSocket.begin();
+  webSocket.onEvent(webSocketEvent);
+  Serial.println("Connected to the WiFi network");
+}
+
+void loop() {
+  webSocket.loop();
+}
+
+void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
+  switch(type) {
+    case WStype_DISCONNECTED:
+      Serial.println("Client disconnected");
+      break;
+    case WStype_CONNECTED:
+      Serial.println("Client connected");
+      break;
+    case WStype_TEXT:
+      if (strcmp((char*)payload, "on") == 0) {
+        digitalWrite(ledPin, HIGH);
+        webSocket.sendTXT(num, "LED turned on");
+      } else if (strcmp((char*)payload, "off") == 0) {
+        digitalWrite(ledPin, LOW);
+        webSocket.sendTXT(num, "LED turned off");
+      }
+      break;
+  }
+}
+```
+To use this code, you will need to modify the ssid and password variables to match your WiFi network. You will also need to modify the IP address in the code to match the IP address of your Arduino microcontroller. You will also need to install the appropriate libraries for WiFi and websockets on the Arduino microcontroller.
