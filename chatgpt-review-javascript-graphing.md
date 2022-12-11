@@ -324,7 +324,9 @@ var chart = new Highcharts.chart("container", {
         name: "Fruit",
         data: data
     }]
-});```
+});
+
+```
 In this example, we define the data for the chart and create a new Highcharts.chart object. We specify the type of chart we want to create (in this case, a bar chart), the data, and some options, such as the title and axis labels. This will create a simple bar chart that shows the data we provided.
 
 Of course, this is just a basic example to illustrate how to use Highcharts. With more code, you can create much more complex and interactive charts and graphs. Please refer to the Highcharts documentation for more information.
