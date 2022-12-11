@@ -219,7 +219,9 @@ svg.append("g")
 svg.append("g")
     .call(d3.axisLeft(y));
     
-    ```
+```
+
+
 In this example,
 
 
