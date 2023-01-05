@@ -1,6 +1,12 @@
 # my-examples-of-chatGPT
 
 
+Index of this website at 
+
+https://hpssjellis.github.io/my-examples-of-chatGPT/public/index.html
+
+
+
 # So far as my requests get more advanced the code generated often has a small issue that is difficult to fix.
 
 
