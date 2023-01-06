@@ -1,0 +1,49 @@
+<html>
+<head>
+  <style>
+    /* Some CSS styles for the form and button */
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      margin: 0 auto;
+    }
+    input[type="text"] {
+      font-size: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #eee;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label for="mytext01">Enter your question:</label>
+    <input type="text" id="mytext01" name="mytext01">
+    <button onclick="myFunction()">Submit</button>
+  </form>
+  <div id="myDiv01"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@openai/chat-gpt-2@0.3.0/dist/chat-gpt-2.min.js"></script>
+  <script>
+    async function myFunction() {
+      // Get the value of the input field
+      var myQuestion = document.getElementById("mytext01").value;
+      // Use ChatGPT to generate a response
+      const chatGpt2 = new ChatGpt2();
+      chatGpt2.on('response', function(response) {
+        // Display the response in the div
+        document.getElementById("myDiv01").innerHTML = response;
+      });
+      chatGpt2.ask(myQuestion);
+    }
+  </script>
+</body>
+</html>
