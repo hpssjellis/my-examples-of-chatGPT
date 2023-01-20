@@ -11,6 +11,9 @@ https://hpssjellis.github.io/my-examples-of-chatGPT/public/index.html
 
 
 
+Check out this site of great prompts  
+https://github.com/f/awesome-chatgpt-prompts
+
 
 
 
